@@ -77,7 +77,17 @@ const simulateRejected = () => {
     {callHistory.map((call, index) => (
       <tr key={index}>
         <td>{call.number}</td>
-        <td>{call.status}</td>
+      <td>
+  <span
+    className={
+      call.status === "Connected"
+        ? "status-connected"
+        : "status-rejected"
+    }
+  >
+    {call.status}
+  </span>
+</td>
         <td>{call.time}</td>
         <td>{call.duration}</td>
       </tr>

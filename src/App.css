@@ -138,3 +138,13 @@ button:hover {
 .call-table tr:nth-child(odd) {
   background-color: #1f2937;
 }
+
+.status-connected {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.status-rejected {
+  color: #ef4444;
+  font-weight: bold;
+}
