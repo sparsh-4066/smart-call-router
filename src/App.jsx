@@ -8,16 +8,33 @@ function App() {
   const [totalCalls, setTotalCalls] = useState(0)
   const [connectedCalls, setConnectedCalls] = useState(0)
   const [rejectedCalls, setRejectedCalls] = useState(0)
+  const [callHistory, setCallHistory] = useState([])
 
   const simulateConnected = () => {
-    setTotalCalls(totalCalls + 1)
-    setConnectedCalls(connectedCalls + 1)
+  const newCall = {
+    number: "+91-98" + Math.floor(Math.random() * 100000000),
+    status: "Connected",
+    time: new Date().toLocaleTimeString(),
+    duration: Math.floor(Math.random() * 300) + " sec"
   }
 
-  const simulateRejected = () => {
-    setTotalCalls(totalCalls + 1)
-    setRejectedCalls(rejectedCalls + 1)
+  setTotalCalls(totalCalls + 1)
+  setConnectedCalls(connectedCalls + 1)
+  setCallHistory([newCall, ...callHistory])
+}
+
+const simulateRejected = () => {
+  const newCall = {
+    number: "+91-98" + Math.floor(Math.random() * 100000000),
+    status: "Rejected",
+    time: new Date().toLocaleTimeString(),
+    duration: "0 sec"
   }
+
+  setTotalCalls(totalCalls + 1)
+  setRejectedCalls(rejectedCalls + 1)
+  setCallHistory([newCall, ...callHistory])
+}
 
   return (
     <div className="layout">
@@ -44,6 +61,30 @@ function App() {
               Simulate Rejected Call
             </button>
           </div>
+
+         <h2 style={{ marginTop: "40px" }}>Recent Calls</h2>
+
+<table className="call-table">
+  <thead>
+    <tr>
+      <th>Caller</th>
+      <th>Status</th>
+      <th>Time</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    {callHistory.map((call, index) => (
+      <tr key={index}>
+        <td>{call.number}</td>
+        <td>{call.status}</td>
+        <td>{call.time}</td>
+        <td>{call.duration}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
         </div>
       </div>
     </div>

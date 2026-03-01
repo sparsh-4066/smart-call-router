@@ -113,3 +113,28 @@ button:hover {
 .content {
   padding: 30px;
 }
+
+
+.call-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.call-table th,
+.call-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.call-table th {
+  background-color: #1f2937;
+}
+
+.call-table tr:nth-child(even) {
+  background-color: #111827;
+}
+
+.call-table tr:nth-child(odd) {
+  background-color: #1f2937;
+}
