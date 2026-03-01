@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Temp from "./components/temp"
+import Temp from "./components/Temp"
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
 import "./App.css"
